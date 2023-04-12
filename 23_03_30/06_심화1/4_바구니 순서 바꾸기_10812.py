@@ -3,14 +3,18 @@
 # 1 2 3 4 5 6
 # 4 5 6 1 2 3 
 
-a = 10
-b = 5
-i = 1
-j = 6
-k = 4
+
+import sys
+a, b = map(int, sys.stdin.readline().split())
 
 lst = [i for i in range(1, a+1)]
 
-for num in lst:
-    print(lst[j-i+1])
+for i in range(b):
+    x, y, z = map(int, sys.stdin.readline().split())
     
+    x = x - 1
+    z = z - 1
+
+    lst = lst[:x] + lst[z:y] + lst[x:z] + lst[y:] 
+
+print(*lst)
