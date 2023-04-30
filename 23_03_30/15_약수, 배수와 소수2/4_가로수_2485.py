@@ -13,16 +13,16 @@ for i in range(len(lst) - 1):
     b = lst[i+1] - lst[i]
     distance.append(b)
 
-for i in range(0, len(distance) - 1):
-    g = math.gcd(distance[i], distance[i+1])
+g = math.gcd(distance[0], distance[1])
+for i in range(2, len(distance) - 1):
+    g = math.gcd(g, distance[i+1])
 
-new = [lst[0]]
+result = (lst[-1] - lst[0]) / g
 
-a = lst[0]
-for i in range(lst[0], lst[-1]):
-    if a >= lst[-1]:
-        break
-    else:
-        a = a + g
-        new.append(a)
-print(len(new) - len(lst))
+print(int(result - len(lst) + 1))
+
+'''
+16
+4
+
+'''
